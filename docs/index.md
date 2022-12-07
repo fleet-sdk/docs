@@ -23,6 +23,6 @@ features:
     details: JavaScript allows running off-chain code directly on user's browser, which means better decentralization as it makes backends unnecessary for most cases.
   - title: "Pure JavaScript"
     details: Enjoy the experience of writing off-chain code with a fully typed, fluent and pure JS library.
-  - title: "Isomorphic"
-    details: Out-of-the-box compatible on Node.js and Browser environments. Write once, run anywhere.
+  - title: "Write once, run anywhere."
+    details: Out-of-the-box compatible with Node.js and Browser environments.
 ---
