@@ -16,9 +16,7 @@ export default defineConfig({
       pattern: "https://github.com/fleet-sdk/docs/edit/master/docs/:path",
       text: "Edit this page on GitHub",
     },
-    socialLinks: [
-      { icon: "github", link: "https://github.com/fleet-sdk/fleet" },
-    ],
+    socialLinks: [{ icon: "github", link: "https://github.com/fleet-sdk" }],
     sidebar: {
       "/guide/": sidebarGuide(),
     },

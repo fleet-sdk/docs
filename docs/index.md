@@ -14,7 +14,7 @@ hero:
       link: /guide/getting-started
     - theme: alt
       text: View on GitHub
-      link: https://github.com/fleet-sdk/fleet
+      link: https://github.com/fleet-sdk
 
 features:
   - title: Simplicity first
