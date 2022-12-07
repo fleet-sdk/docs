@@ -7,7 +7,7 @@ titleTemplate: Fluent Ergo Toolset
 hero:
   name: Fleet SDK
   text: Fluent Ergo Toolset
-  tagline: Simple, powerful, and performant. Meet the next generation of Ergo Platform's off-chain code SDKs.
+  tagline: Simple, powerful, and extensible. Meet the next generation of Ergo Platform's off-chain code SDKs.
   actions:
     - theme: brand
       text: Get Started
@@ -23,4 +23,6 @@ features:
     details: JavaScript allows running off-chain code directly on user's browser, which means better decentralization as it makes backends unnecessary for most cases.
   - title: "Pure JavaScript"
     details: Enjoy the experience of writing off-chain code with a fully typed, fluent and pure JS library.
+  - title: "Isomorphic"
+    details: Out-of-the-box compatible on Node.js and Browser environments. Write once, run anywhere.
 ---
