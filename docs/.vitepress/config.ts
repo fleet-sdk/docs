@@ -12,10 +12,13 @@ export default defineConfig({
   head: [["meta", { name: "theme-color", content: "#3c8772" }]],
 
   themeConfig: {
+    editLink: {
+      pattern: "https://github.com/fleet-sdk/docs/edit/master/docs/:path",
+      text: "Edit this page on GitHub",
+    },
     socialLinks: [
       { icon: "github", link: "https://github.com/fleet-sdk/fleet" },
     ],
-
     sidebar: {
       "/guide/": sidebarGuide(),
     },
