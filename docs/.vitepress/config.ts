@@ -28,10 +28,7 @@ function sidebarGuide(): DefaultTheme.SidebarGroup[] {
     {
       text: "Introduction",
       collapsible: true,
-      items: [
-        { text: "What is Fleet?", link: "/guide/what-is-fleet" },
-        { text: "Getting Started", link: "/guide/getting-started" },
-      ],
+      items: [{ text: "Getting Started", link: "/guide/getting-started" }],
     },
     {
       text: "Basic Usage",
@@ -39,8 +36,7 @@ function sidebarGuide(): DefaultTheme.SidebarGroup[] {
       items: [
         {
           text: "Wallet interaction",
-          link: "",
-          items: [{ text: "dApp Connector", link: "" }],
+          link: "/guide/wallet-interaction",
         },
         { text: "Transaction building", link: "" },
         { text: "Token minting", link: "" },
