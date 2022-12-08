@@ -158,7 +158,7 @@ await ergo.get_unused_addresses();
 
 ### Step. 5: Fetch boxes
 
-Boxes are UTxOs with steroids, they play a crucial role in Ergo Blockchain by holding assets and data protected by a contract.
+Boxes are UTxOs with steroids, they play a crucial role in the Ergo Blockchain by holding assets and data protected by a contract.
 
 You can use the `ergo.get_utxos()` method to fetch unspent boxes owned by the selected wallet.
 

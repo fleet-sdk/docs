@@ -5,7 +5,7 @@
 The aim for this respository is to provide:
 
 + A Guide to [Getting Started](https://fleet-sdk.github.io/docs/guide/getting-started)
-+ [Examples] of Fleet SDK
++ [Examples](docs/guide/examples.md) of Fleet SDK
 
 ## Contributing
 
