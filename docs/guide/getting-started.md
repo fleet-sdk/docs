@@ -1,6 +1,6 @@
 # Getting Started
 
-Feet SDK is an easy-to-use, modular and extensible Ergo Platform's off-chain code SDK (Software Development Kit), written entirely in TypeScript.
+Feet SDK is an easy-to-use, modular, and extensible Ergo Platform's off-chain code SDK (Software Development Kit), written entirely in TypeScript.
 
 ::: warning
 **Fleet SDK** is currently in alpha status. It is already suitable for out-of-the-box use, but the API may still change between minor releases.
@@ -8,7 +8,7 @@ Feet SDK is an easy-to-use, modular and extensible Ergo Platform's off-chain cod
 
 ## Step. 1: Install
 
-Add Fleet SDK as dependency for the project.
+Add Fleet SDK as a dependency for the project.
 
 ```bash
 npm install @fleet-sdk/core
@@ -16,7 +16,7 @@ npm install @fleet-sdk/core
 
 ## Step. 2: Import modules
 
-Next you need to import necessary components for your use case.
+Next, you need to import the necessary components for your use case.
 
 ```ts
 import { TransactionBuilder, OutputBuilder } from "@fleet-sdk/core";
@@ -41,5 +41,5 @@ const unsignedTransaction = new TransactionBuilder(creationHeight)
 ```
 
 ::: tip
-No idea about where `inputs` and `creationHeight` variables come from? Please, take a look at [Wallet Interaction](/guide/wallet-interaction.md) page.
+No idea about where `inputs` and `creationHeight` variables come from? Please, take a look at the [Wallet Interaction](/guide/wallet-interaction.md) page.
 :::
