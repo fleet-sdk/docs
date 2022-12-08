@@ -10,6 +10,8 @@ Non-reviewed text, you may find numerous writing errors throughout this guide.
 
 EIP-12 API is divided into two parts, the Connection and Context APIs, in the following you can read a short description of both.
 
+First, it's important to state that all EIP-12 methods are asynchronous, which means they will return a `Promise`. So you need to use `await` keyword or `Promise.then()` method to call any of them.
+
 ### Connection API
 
 The Connection API is responsible for all connection and wallet info-related methods, such as access requesting and connection state checking.
@@ -45,10 +47,6 @@ Once the connection request is accepted by the user, this API will be injected i
 ```ts
 await ergo.get_balance();
 ```
-
-::: tip
-All EIP-12 methods are asynchronous, which means they will return a `Promise`. So you need to use `await` keyword or `Promise.then()` method to call any of them.
-:::
 
 ## Step. 1: Check wallet presence
 
@@ -158,15 +156,11 @@ The following code will return an `array` of strings containing all wallet's use
 await ergo.get_unused_addresses();
 ```
 
-## Step. 5: Fetch wallet boxes
+## Step. 5: Fetch boxes
 
 Boxes are UTxOs with steroids, they play a crucial role in Ergo Blockchain by holding assets and data protected by a contract.
 
 You can use the `ergo.get_utxos()` method to fetch unspent boxes owned by the selected wallet.
-
-:::tip
-Along this guide, especially on Transaction Building topics, when we talk about `inputs` or `data inputs` we are referring to unspent boxes.
-:::
 
 ### Get all unspent boxes
 
