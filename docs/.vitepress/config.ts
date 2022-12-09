@@ -20,7 +20,7 @@ export default defineConfig({
     socialLinks: [{ icon: "github", link: "https://github.com/fleet-sdk" }],
     nav: nav(),
     sidebar: {
-      "/guide/": sidebarGuide(),
+      "/": sidebarGuide(),
     },
     footer: {
       message: "Released under the MIT License.",
@@ -47,7 +47,7 @@ function sidebarGuide(): DefaultTheme.SidebarGroup[] {
     {
       text: "Introduction",
       collapsible: true,
-      items: [{ text: "Getting Started", link: "/guide/getting-started" }],
+      items: [{ text: "Getting Started", link: "/getting-started" }],
     },
     {
       text: "Basic Usage",
@@ -55,7 +55,7 @@ function sidebarGuide(): DefaultTheme.SidebarGroup[] {
       items: [
         {
           text: "Wallet interaction",
-          link: "/guide/wallet-interaction",
+          link: "/wallet-interaction",
         },
         { text: "Transaction building", link: "" },
         { text: "Token minting", link: "" },
