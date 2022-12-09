@@ -12,9 +12,6 @@ hero:
     - theme: brand
       text: Get Started
       link: /guide/getting-started
-    - theme: brand
-      text: Examples
-      link: /guide/examples
     - theme: alt
       text: View on GitHub
       link: https://github.com/fleet-sdk
