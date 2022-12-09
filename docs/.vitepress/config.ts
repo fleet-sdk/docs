@@ -17,11 +17,29 @@ export default defineConfig({
       text: "Edit this page on GitHub",
     },
     socialLinks: [{ icon: "github", link: "https://github.com/fleet-sdk" }],
+    nav: nav(),
     sidebar: {
       "/guide/": sidebarGuide(),
     },
+    footer: {
+      message: "Released under the MIT License.",
+    },
   },
 });
+
+function nav(): DefaultTheme.NavItem[] {
+  return [
+    {
+      text: "v0.1.0-alpha",
+      items: [
+        {
+          text: "Changelog",
+          link: "https://github.com/fleet-sdk/fleet/blob/master/CHANGELOG.md",
+        },
+      ],
+    },
+  ];
+}
 
 function sidebarGuide(): DefaultTheme.SidebarGroup[] {
   return [
