@@ -1,6 +1,6 @@
 # Wallet Interaction
 
-On the [Ergo Platform](https://ergoplatform.org/), one of the most common ways to interact with wallets and the Ergo blockchain is through the decentralized application (dApp) Connector. The [EIP-12 protocol](https://github.com/ergoplatform/eips/pull/23) defines the dApp Connector and the Context APIs. It is the main protocol of browser extension wallets like [Nautilus](https://github.com/capt-nemo429/nautilus-wallet) or [SAFEW](https://github.com/ThierryM1212/SAFEW).
+On the [Ergo Platform](https://ergoplatform.org/), one of the most common ways to interact with wallets and the Ergo blockchain is through the dApp Connector protocol, also known as [EIP-12](https://github.com/ergoplatform/eips/pull/23). It is the main wallet interaction protocol for browser extension wallets like [Nautilus](https://github.com/capt-nemo429/nautilus-wallet) or [SAFEW](https://github.com/ThierryM1212/SAFEW).
 
 :::warning
 **Work-in-Progress**: Non-reviewed text. You may find numerous writing errors throughout this guide.
@@ -8,17 +8,19 @@ On the [Ergo Platform](https://ergoplatform.org/), one of the most common ways t
 
 ## API overview
 
-The EIP-12 API is divided into two parts, the Connection and Context APIs. All methods defined in EIP-12 are asynchronous. They return a `Promise`. As a result, calling any EIP-12 method requires either an  `await` keyword or `Promise.then()` method.
+The EIP-12 API is divided into two parts, the Connection and Context APIs. All methods defined in EIP-12 are promise based asynchronous methods. Which means, they return a `Promise`. As a result, calling any EIP-12 method requires either an `await` keyword or `Promise.then()` method to wait for them to finish.
 
-## Connection API
+### Connection API
 
 The Connection API is responsible for all connection and wallet information related methods, such as access requesting and connection state checking.
 
-EIP-12 compatible browser wallets on Ergo will automatically inject the **Connection API** into every active page so that any JavaScript API can interact with it directly through the `ergoConnector`` object.
+EIP-12 compatible browser wallets on Ergo will automatically inject the **Connection API** into every active page so that any JavaScript context can interact with it directly through the `ergoConnector` object.
 
-The Connection API is structured to allow support for multiple wallets. To connect to a wallet, use, `ergoConnector.{walletName}.connect()` where `{walletName}` is the wallet of your choice.
+#### Multi-wallet support
 
-### Examples
+The Connection API is structured to allow support for multiple wallets. To connect to a wallet, you can use `ergoConnector.{walletName}.connect()` method, where `{walletName}` is the wallet of your choice.
+
+#### Examples
 
 Asking for Nautilus Wallet connection
 
@@ -32,11 +34,9 @@ Asking for SAFEW Wallet connection
 await ergoConnector.safew.connect();
 ```
 
-:::info
-**Note:** The API remains the same. Only the wallet name changes.
-:::
+Note that the API remains the same. Only the wallet name changes.
 
-## Context API
+### Context API
 
 The Context API is responsible for wallet interactions, such as balance fetching, transaction signing, _et cetera_.
 
@@ -48,11 +48,11 @@ Once the connection request is accepted by the user, this API will be injected i
 await ergo.get_balance();
 ```
 
-## Using the EIP-12 APIs
+## Interacting with a wallet
 
 ### Step. 1: Check for a wallet
 
-To check if the user has an EIP-12 wallet installed and running you can check for the presence of `ergoConnector` object and then for the desired wallet.
+To check if the user has an EIP-12 wallet installed and running you need to check for the presence of `ergoConnector` object and then for the desired wallet.
 
 <!-- prettier-ignore-start -->
 ```ts
@@ -76,7 +76,7 @@ For the sake of simplicity, Nautilus Wallet will be used for all examples. But t
 
 ### Step. 2: Request access
 
-To interact with the user's wallet, request wallet access.
+To interact with the user's wallet, you need to request wallet access.
 
 ```ts
 const connected = await ergoConnector.nautilus.connect(); // [!code focus]
@@ -103,10 +103,6 @@ The following code will return a `string` with the total of `NanoErgs` owned by 
 ```ts
 await ergo.get_balance("ERG");
 ```
-
-:::info
-The value in NanoErgs (1 Erg = 1,000,000,000 NanoErgs).
-:::
 
 #### Get balance by Token ID
 
@@ -144,30 +140,20 @@ The following code will return a `string` containing the wallet's default change
 await ergo.get_change_address();
 ```
 
-Example of returned string:
-
-```ts
-03faf2cb329f2e90d6d23b58d91bbb6c046aa143261cc21f52fbe2824bfcbf04
-```
-
-#### Get used addresses
+#### Get unused addresses
 
 The following code will return an `array` of strings containing all wallet's unused addresses. By unused, read addresses that never sent or received any transaction.
 
 ```ts
-await ergo.get_used_addresses();
+await ergo.get_unused_addresses();
 ```
 
-Example of returned array:
-
-[{ tokenId: string, balance: string }];
-
-#### Get unused addresses
+#### Get used addresses
 
 The following code will return an `array` of strings containing all wallet's used addresses.
 
 ```ts
-await ergo.get_unused_addresses();
+await ergo.get_used_addresses();
 ```
 
 ### Step. 5: Fetch boxes
@@ -178,7 +164,7 @@ You can use the `ergo.get_utxos()` method to fetch unspent boxes owned by the se
 
 #### Get all unspent boxes
 
-The following core will return an array of all unspent boxes owned by the selected wallet.
+The following code will return an array of all unspent boxes owned by the selected wallet.
 
 ```ts
 await ergo.get_utxos();
@@ -254,4 +240,4 @@ Now you have a signed transaction you can submit it to the blockchain using the 
 const transactionId = await ergo.submit_tx(signedTransaction);
 ```
 
-If the transaction is successfully accepted by mempool, a `string` containing the `Transaction ID` will be returned otherwise, it will throw an exception.
+If the transaction is successfully accepted by the mempool, a `string` containing the `Transaction ID` will be returned otherwise, it will throw an exception.
