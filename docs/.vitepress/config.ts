@@ -12,6 +12,7 @@ export default defineConfig({
   head: [["meta", { name: "theme-color", content: "#3c8772" }]],
 
   themeConfig: {
+    outline: [2, 3],
     editLink: {
       pattern: "https://github.com/fleet-sdk/docs/edit/master/docs/:path",
       text: "Edit this page on GitHub",
