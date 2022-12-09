@@ -9,3 +9,8 @@ yarn.lock
 .DS_Store
 .npmrc
 dist
+/.vs/slnx.sqlite
+/.vs/fleet-sdk-docs/v17/.wsuo
+/.vs/fleet-sdk-docs/FileContentIndex/42aab4b8-8b09-4f5b-8840-a2e92f72be82.vsidx
+/.vs/fleet-sdk-docs/FileContentIndex/6c198681-dfe7-497a-941d-21640f1b07e4.vsidx
+/.vs/fleet-sdk-docs/FileContentIndex/a3f220df-a038-4dbb-abcf-fe87b3308e9b.vsidx
