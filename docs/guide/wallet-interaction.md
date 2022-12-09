@@ -2,10 +2,6 @@
 
 On the [Ergo Platform](https://ergoplatform.org/), one of the most common ways to interact with wallets and the Ergo blockchain is through the decentralized application (dApp) Connector. The [EIP-12 protocol](https://github.com/ergoplatform/eips/pull/23) defines the dApp Connector and the Context APIs. It is the main protocol of browser extension wallets like [Nautilus](https://github.com/capt-nemo429/nautilus-wallet) or [SAFEW](https://github.com/ThierryM1212/SAFEW).
 
-:::info
-For the sake of simplicity, Nautilus Wallet will be used for all examples. But this guide is suitable for any other EIP-12 compatible wallet. Please, refer to the [Connection API topic](#connection-api) for more information.
-:::
-
 :::warning
 **Work-in-Progress**: Non-reviewed text. You may find numerous writing errors throughout this guide.
 :::
@@ -18,7 +14,7 @@ The EIP-12 API is divided into two parts, the Connection and Context APIs. All m
 
 The Connection API is responsible for all connection and wallet information related methods, such as access requesting and connection state checking.
 
-EIP-12 compatible browser wallets on Ergo will automatically inject the **Connection API** into every active, page so that any JavaScript API can interact with it directly through the `ergoConnector`` object.
+EIP-12 compatible browser wallets on Ergo will automatically inject the **Connection API** into every active page so that any JavaScript API can interact with it directly through the `ergoConnector`` object.
 
 The Connection API is structured to allow support for multiple wallets. To connect to a wallet, use, `ergoConnector.{walletName}.connect()` where `{walletName}` is the wallet of your choice.
 
@@ -36,7 +32,9 @@ Asking for SAFEW Wallet connection
 await ergoConnector.safew.connect();
 ```
 
+:::info
 **Note:** The API remains the same. Only the wallet name changes.
+:::
 
 ## Context API
 
@@ -72,9 +70,13 @@ if (ergoConnector) { // check if Connection API is injected // [!code focus]
 ```
 <!-- prettier-ignore-end -->
 
+:::info
+For the sake of simplicity, Nautilus Wallet will be used for all examples. But this guide is suitable for any other EIP-12 compatible wallet. Please, refer to the [Connection API topic](#connection-api) for more information.
+:::
+
 ### Step. 2: Request access
 
-To interact with the user's wallet you first need to request wallet access.
+To interact with the user's wallet, request wallet access.
 
 ```ts
 const connected = await ergoConnector.nautilus.connect(); // [!code focus]
@@ -86,13 +88,13 @@ if (connected) {
 }
 ```
 
-When you call `ergoConnector.nautilus.connect()` for the first time a wallet window will pop-up asking for the user to allow access to the selected wallet. If the user rejects, it will return `false` otherwise, it will return `true` and inject the [Context API](#context-api) so that the `ergo` object will be available for direct use.
+When you call `ergoConnector.nautilus.connect()` for the first time a wallet window will pop-up asking the user to allow access to the selected wallet. If the user rejects the prompt, it will return `false` otherwise, it will return `true` and inject the [Context API](#context-api), which will make the `ergo` object available for direct use.
 
 ### Step. 3: Get balance
 
 Now that you have access to the [Context API](#context-api) you can interact with the connected wallet.
 
-Let's start getting the wallet's balance. For that, you can use the `ergo.get_balance()` method.
+Let's start by getting the wallet's balance. For that, you can use the `ergo.get_balance()` method.
 
 #### Get ERG balance
 
@@ -101,6 +103,10 @@ The following code will return a `string` with the total of `NanoErgs` owned by 
 ```ts
 await ergo.get_balance("ERG");
 ```
+
+:::info
+The value in NanoErgs (1 Erg = 1,000,000,000 NanoErgs).
+:::
 
 #### Get balance by Token ID
 
@@ -128,9 +134,7 @@ The returned array is structured as follows:
 
 ### Step. 4: Get addresses
 
-There are three methods to get user addresses: `ergo.get_used_addresses()`, `ergo.get_unused_addresses()` and, `ergo.get_change_address()`.
-
-Methods' names are auto descriptive but let's have a short description of each of them.
+There are three methods to get user addresses:
 
 #### Get the change/default address
 
@@ -140,6 +144,12 @@ The following code will return a `string` containing the wallet's default change
 await ergo.get_change_address();
 ```
 
+Example of returned string:
+
+```ts
+03faf2cb329f2e90d6d23b58d91bbb6c046aa143261cc21f52fbe2824bfcbf04
+```
+
 #### Get used addresses
 
 The following code will return an `array` of strings containing all wallet's unused addresses. By unused, read addresses that never sent or received any transaction.
@@ -147,6 +157,10 @@ The following code will return an `array` of strings containing all wallet's unu
 ```ts
 await ergo.get_used_addresses();
 ```
+
+Example of returned array:
+
+[{ tokenId: string, balance: string }];
 
 #### Get unused addresses
 
@@ -158,7 +172,7 @@ await ergo.get_unused_addresses();
 
 ### Step. 5: Fetch boxes
 
-Boxes are UTxOs with steroids, they play a crucial role in the Ergo Blockchain by holding assets and data protected by a contract.
+Boxes are UTxOs on steroids, they play a crucial role in the Ergo blockchain by holding assets and data protected by a contract.
 
 You can use the `ergo.get_utxos()` method to fetch unspent boxes owned by the selected wallet.
 
