@@ -41,5 +41,11 @@ const unsignedTransaction = new TransactionBuilder(creationHeight)
 ```
 
 ::: tip
-No idea about where `inputs` and `creationHeight` variables come from? Please, take a look at the [Wallet Interaction](/guide/wallet-interaction.md) page.
+No idea about where `inputs` and `creationHeight` variables come from? Please, take a look at the [Wallet Interaction](/wallet-interaction.md) page.
 :::
+
+## What's next?
+
+Next on, you can continue on this guide for an in-depth exploration of all Fleet packages or pick the topic of your preference on the side panel.
+
+If you are not yet familiar with Ergo transactions, you may want to look at the excellent "[Anatomy of Ergo](https://docs.ergoplatform.com/dev/data-model/box/)" section on Ergo Docs.
