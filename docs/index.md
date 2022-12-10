@@ -20,7 +20,7 @@ features:
   - title: Fluent & powerful
     details: Fleet abstracts all complex tasks and makes heavy use of fluent APIs to deliver a great developer experience. Enjoy the experience of writing frictionless off-chain code with a fully typed and pure Javascript library.
   - title: Make truly decentralized dApps
-    details: Being a JavaScript package, Fleet makes possible to run off-chain code directly in the user's browser. Eliminating the need for backends can simplifying the creation of truly decentralized applications.
+    details: Being a JavaScript package, Fleet makes it possible to run off-chain code directly in the user's browser. Eliminating the need for backends and can simplify the creation of truly decentralized applications.
   - title: "Write once, run anywhere"
     details: Extensible and portable. Out-of-the-box compatible with Node.js and browser environments.
 ---

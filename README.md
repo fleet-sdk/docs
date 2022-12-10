@@ -2,10 +2,9 @@
 
 [Fleet SDK](https://github.com/fleet-sdk/fleet) is an easy-to-use, modular, and extensible off-chain code SDK (Software Development Kit)for the [Ergo Platform](https://ergoplatform.org/en/), written entirely in TypeScript.
 
-The aim for this respository is to provide:
+**Fleet SDK** is currently in alpha status. It is already suitable for out-of-the-box use, but the API may still change between minor releases.
 
-+ A Guide to [Getting Started](https://fleet-sdk.github.io/docs/guide/getting-started)
-+ [Examples](docs/guide/examples.md) of Fleet SDK
+This repository is for the [Fleet SDK Documentation](https://fleet-sdk.github.io/docs/) website. 
 
 ## Contributing
 
