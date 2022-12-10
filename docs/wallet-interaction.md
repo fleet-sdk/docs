@@ -8,7 +8,7 @@ On the [Ergo Platform](https://ergoplatform.org/), one of the most common ways t
 
 ## API overview
 
-The EIP-12 API is divided into two parts, the Connection and Context APIs. All methods defined in EIP-12 are promise based asynchronous methods. Which means, they return a `Promise`. As a result, calling any EIP-12 method requires either an `await` keyword or `Promise.then()` method to wait for them to finish.
+The EIP-12 API is divided into two parts, the Connection and Context APIs. All methods defined in EIP-12 are promise-based asynchronous methods. This means that they return a `Promise`. As a result, calling any EIP-12 method requires either an `await` keyword or `Promise.then()` method to wait for them to finish.
 
 ### Connection API
 
