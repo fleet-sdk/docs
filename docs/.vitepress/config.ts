@@ -71,12 +71,11 @@ function sidebarGuide(): DefaultTheme.SidebarGroup[] {
       ],
     },
     {
-      text: "Plugin Development",
+      text: "Plugin Authoring",
       collapsible: true,
       items: [
         { text: "Getting Started", link: "" },
         { text: "API specifications", link: "" },
-        { text: "Lifecycle Hooks", link: "" },
         { text: "Examples", link: "" },
       ],
     },
