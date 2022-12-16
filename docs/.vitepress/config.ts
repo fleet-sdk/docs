@@ -14,18 +14,21 @@ export default defineConfig({
   themeConfig: {
     outline: [2, 3],
     editLink: {
-      pattern: "https://github.com/fleet-sdk/docs/edit/master/docs/:path",
-      text: "Edit this page on GitHub",
+      pattern:
+        "https://github.com/fleet-sdk/docs/edit/master/docs/:path",
+      text: "Edit this page on GitHub"
     },
-    socialLinks: [{ icon: "github", link: "https://github.com/fleet-sdk" }],
+    socialLinks: [
+      { icon: "github", link: "https://github.com/fleet-sdk" }
+    ],
     nav: nav(),
     sidebar: {
-      "/": sidebarGuide(),
+      "/": sidebarGuide()
     },
     footer: {
-      message: "Released under the MIT License.",
-    },
-  },
+      message: "Released under the MIT License."
+    }
+  }
 });
 
 function nav(): DefaultTheme.NavItem[] {
@@ -35,10 +38,10 @@ function nav(): DefaultTheme.NavItem[] {
       items: [
         {
           text: "Changelog",
-          link: "https://github.com/fleet-sdk/fleet/blob/master/CHANGELOG.md",
-        },
-      ],
-    },
+          link: "https://github.com/fleet-sdk/fleet/blob/master/CHANGELOG.md"
+        }
+      ]
+    }
   ];
 }
 
@@ -46,29 +49,28 @@ function sidebarGuide(): DefaultTheme.SidebarGroup[] {
   return [
     {
       text: "Introduction",
-      collapsible: true,
-      items: [{ text: "Getting Started", link: "/getting-started" }],
+      collapsible: false,
+      items: [{ text: "Getting Started", link: "/getting-started" }]
     },
     {
       text: "Basic Usage",
-      collapsible: true,
+      collapsible: false,
       items: [
+        { text: "Wallet interaction", link: "/wallet-interaction" },
         {
-          text: "Wallet interaction",
-          link: "/wallet-interaction",
+          text: "Transaction building",
+          link: "/transaction-building"
         },
-        { text: "Transaction building", link: "" },
-        { text: "Token minting", link: "" },
-        { text: "Token burning", link: "" },
-      ],
+        { text: "Token burning", link: "" }
+      ]
     },
     {
       text: "Built-in Plugins",
       collapsible: true,
       items: [
         { text: "Babel Fees", link: "" },
-        { text: "Sigma USD", link: "" },
-      ],
+        { text: "Sigma USD", link: "" }
+      ]
     },
     {
       text: "Plugin Authoring",
@@ -76,8 +78,8 @@ function sidebarGuide(): DefaultTheme.SidebarGroup[] {
       items: [
         { text: "Getting Started", link: "" },
         { text: "API specifications", link: "" },
-        { text: "Examples", link: "" },
-      ],
-    },
+        { text: "Examples", link: "" }
+      ]
+    }
   ];
 }
