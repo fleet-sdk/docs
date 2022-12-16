@@ -10,9 +10,21 @@ Fleet SDK is an easy-to-use, modular, and extensible off-chain code SDK (Softwar
 
 Add Fleet SDK as a dependency for the project.
 
-```bash
-npm install @fleet-sdk/core
+::: code-group
+
+```bash [NPM]
+npm i @fleet-sdk/core
 ```
+
+```bash [Yarn]
+yarn add @fleet-sdk/core
+```
+
+```bash [pnpm]
+pnpm add @fleet-sdk/core
+```
+
+:::
 
 ## Step. 2: Import modules
 
@@ -28,16 +40,17 @@ Now, you are ready to write awesome off-chain code!
 
 ```ts
 const unsignedTransaction = new TransactionBuilder(creationHeight)
-  .from(inputs)
+  .from(inputs) // add inputs
   .to(
+    // add outputs
     new OutputBuilder(
       1000000n,
       "9gNvAv97W71Wm33GoXgSQBFJxinFubKvE6wh2dEhFTSgYEe783j"
     )
   )
-  .sendChangeTo("9i2bQmRpCPLmDdVgBNyeAy7dDXqBQfjvcxVVt5YMzbDud6AvJS8")
-  .payMinFee()
-  .build();
+  .sendChangeTo(changeAddress) // set change address
+  .payMinFee() // set fee
+  .build(); // build!
 ```
 
 ::: tip
