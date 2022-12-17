@@ -1,8 +1,8 @@
 # Transaction Building
 
-An Ergo transaction is a way to interact with the blockchain by describing how and which Input boxes must be spent, and how to create new Output boxes.
+An Ergo transaction is a way to interact with the blockchain. A transaction takes Input boxes from the blockchain, describes how each must be spent, and generates new Output boxes. These Output boxes then serve as Input boxes for a later transaction. 
 
-- Ergo transaction is an **atomic operation**, which means it can't be partially executed.
+- Each and every Ergo transaction is an **atomic operation**, which means it can not be partially executed.
 
 - Each transaction must contain **one or more** Input boxes, **one or more** Output boxes and **zero or more** Data-Input boxes.
 
@@ -28,17 +28,17 @@ import { TransactionBuilder, OutputBuilder } from "@fleet-sdk/core";
 
 The `TransactionBuilder` class requires a **Creation Height** as a constructor param.
 
-Each newly created output box needs to hold its creation block height. Usually, the Creation Height is the current block height at the time of the creation of the transaction.
+Transactions end with newly created boxes, or Output boxes. Each newly created Output box needs to contain its creation block height. Usually, the Creation Height is the current block height at the time of the creation of the transaction. Creation height is a required parameter to begin building a transaction.
 
 ```ts
 new TransactionBuilder(creationHeight);
 ```
 
-## Step. 2: Add Inputs
+## Step. 2: Add inputs
 
-Input boxes are the source of the funds for the transaction. As they hold the funds to be spent by the transaction, the guard script, also known as `ErgoTree` in Ergo, in each input box must be successfully evaluated by the nodes for the transaction to be considered valid.
+Input boxes are the source of the funds for the transaction.
 
-To add inputs to the transaction body, you can use the `from()` method, which accepts an array of or a single input box object.
+To add inputs to the transaction body, use the `from()` method. This method can accept a single input box object or an array of input boxes.
 
 <!-- prettier-ignore -->
 ```ts
@@ -65,13 +65,13 @@ type Box = {
 
 ## Step. 3: Add Data-Inputs
 
-The Data-Inputs are boxes whose data can be referenced and used by smart contracts of the input boxes if required. A good use case for Data-Inputs is oracle data feeding.
+The Data-Inputs are boxes whose data can be referenced and used by contracts, if required. A good use case for Data-Inputs is using oracle data. For example, the [SigmaUSD](https://sigmausd.io/) contract uses an oracle of Ergo price to set the exchange rate for SigUSD and SigRSV conversation to and from Erg at regular intervals.  
 
 - Any **unspent** box can be used as Data-Input.
-- Data-Inputs are **optional** and must be only included in the transaction if required by a contract in input boxes.
+- Data-Inputs are **optional** and must be only included in the transaction if required by a contract.
 - Boxes will not be spent by the transaction if used as Data-Input.
 
-If required by a contract, you can use the `withDataFrom()` method to add Data-Inputs. Similarly to the `from()` method, it accepts an array of or a single box object.
+If required by a contract, use the `withDataFrom()` method to add Data-Inputs. Similar to the `from()` method, `withDataFrom()` can accept a single input box object or an array of input boxes.
 
 <!-- prettier-ignore -->
 ```ts
@@ -80,7 +80,7 @@ new TransactionBuilder(creationHeight)
   .withDataFrom(dataInputs);
 ```
 
-## Step. 4: Add Outputs
+## Step. 4: Add outputs
 
 Outputs boxes are the destination of funds held by the input boxes. When confirmed by the blockchain, output boxes are ready to be used as input boxes in further transactions.
 
@@ -137,7 +137,7 @@ addTokens(
 
 ### Step. 4.2: Mint a token
 
-Tokens on Ergo can be minted out of thin air by a transaction if an inexistent token with the `Token ID` equal to the first input's `Box ID` is added to the outputs. Additionally, [EIP-4](https://github.com/ergoplatform/eips/blob/master/eip-0004.md) defines a pattern for uniform token minting across the ecosystem by settings values on additional registers.
+Tokens on Ergo can be minted, that is, created, by a transaction. To create a new token, set the `Token ID` equal to the first input's `Box ID` and add it to the outputs. Additionally, [EIP-4](https://github.com/ergoplatform/eips/blob/master/eip-0004.md) defines a pattern for uniform token minting across the ecosystem by settings values on additional registers. 
 
 The `OutputBuilder`'s `mintToken()` method provides a seamless way to mint EIP-4 tokens.
 
@@ -164,11 +164,11 @@ Only one token can be minted per transaction.
 
 ## Step. 5: Set the change address
 
-Often you do not use all the funds included in the input boxes, so you need to provide an address to receive these funds back. It's the so-called UTxO change.
+Often, all the funds included in the input boxes are not used by the transaction. An address needs to be set to receive these funds. This is referred to as the change from the eUTxO transaction.
 
 To do so, you must call the `sendChangeTo()` method and pass an address as the only parameter.
 
-In the following example, we are sending the change to `9gNvAv97W71Wm33GoXgSQBFJxinFubKvE6wh2dEhFTSgYEe783j` address.
+In the following example, we are sending the change to the `9gNvAv97W71Wm33GoXgSQBFJxinFubKvE6wh2dEhFTSgYEe783j` address.
 
 <!-- prettier-ignore -->
 ```ts
