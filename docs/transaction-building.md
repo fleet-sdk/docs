@@ -257,7 +257,7 @@ import { OutputBuilder, TransactionBuilder } from "@fleet-sdk/core";
     // send the signed transaction to the mempool
     const txId = await ergo.submit_tx(signedTx);
 
-    // displays the Transaction ID of the submitted transaction
+    // prints the Transaction ID of the submitted transaction on the console
     console.log(txId);
   }
 })();
