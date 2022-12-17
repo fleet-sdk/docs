@@ -1,6 +1,6 @@
 # Transaction Building
 
-An Ergo transaction is a way to interact with the blockchain. A transaction takes Input boxes from the blockchain, describes how each must be spent, and generates new Output boxes. These Output boxes then serve as Input boxes for a later transaction. 
+An Ergo transaction is a way to interact with the blockchain. A transaction takes Input boxes from the blockchain, describes how each must be spent, and generates new Output boxes. These Output boxes then serve as Input boxes for a later transaction.
 
 - Each and every Ergo transaction is an **atomic operation**, which means it can not be partially executed.
 
@@ -12,13 +12,17 @@ An Ergo transaction is a way to interact with the blockchain. A transaction take
 
 ## What is a box?
 
-A Box is an **Unspent Transaction Outputs (UTxO)** on steroids it's not simply a coin as it's commonly intended in blockchains like Bitcoin. Beyond protecting monetary values with a complex script (smart contract), it can also contain data, tokens, and registers. That's what eUTxO stands for.
+Shortly a box is an **Extended Unspent Transaction Output (eUTxO)**, which extends the Bitcoin's **Unspent Transaction Output (UTxO)** data structure with tokens, registers, data, and smart contracts.
 
 An Ergo Transaction is nothing more than a set of boxes.
 
+:::info Note
+We will shorten "smart contract" to simply contract in the rest of this document.
+:::
+
 ## Building a transaction
 
-For transaction building, Fleet provides the `TransactionBuilder` and the `OutputBuilder`. Both deliver a seamless way to construct transactions with built-in validations, selection strategies, automatic change calculation, _et cetera_.
+For transaction building, Fleet provides the `TransactionBuilder` and the `OutputBuilder` classes. Both deliver a seamless way to construct transactions with built-in validations, selection strategies, automatic change calculation, _et cetera_.
 
 ```ts
 import { TransactionBuilder, OutputBuilder } from "@fleet-sdk/core";
@@ -48,7 +52,7 @@ new TransactionBuilder(creationHeight)
 
 ### Input box object type
 
-You can fetch output boxes from the blockchain or directly from the [user's wallet](./wallet-interaction.md#step-5-fetch-boxes).
+Input boxes can be fetched from the blockchain or directly from the [user's wallet](./wallet-interaction.md#step-5-fetch-boxes).
 
 ```ts
 type Box = {
@@ -65,7 +69,7 @@ type Box = {
 
 ## Step. 3: Add Data-Inputs
 
-The Data-Inputs are boxes whose data can be referenced and used by contracts, if required. A good use case for Data-Inputs is using oracle data. For example, the [SigmaUSD](https://sigmausd.io/) contract uses an oracle of Ergo price to set the exchange rate for SigUSD and SigRSV conversation to and from Erg at regular intervals.  
+The Data-Inputs are boxes whose data can be referenced and used by contracts, if required. A good use case for Data-Inputs is using oracle data. For example, the [SigmaUSD](https://sigmausd.io/) contract uses an oracle of Ergo price to set the exchange rate for SigUSD and SigRSV conversation to and from ERG at regular intervals.
 
 - Any **unspent** box can be used as Data-Input.
 - Data-Inputs are **optional** and must be only included in the transaction if required by a contract.
@@ -137,7 +141,7 @@ addTokens(
 
 ### Step. 4.2: Mint a token
 
-Tokens on Ergo can be minted, that is, created, by a transaction. To create a new token, set the `Token ID` equal to the first input's `Box ID` and add it to the outputs. Additionally, [EIP-4](https://github.com/ergoplatform/eips/blob/master/eip-0004.md) defines a pattern for uniform token minting across the ecosystem by settings values on additional registers. 
+Tokens on Ergo can be minted, that is, created, by a transaction. To create a new token, set the `Token ID` equal to the first input's `Box ID` and add it to the outputs. Additionally, [EIP-4](https://github.com/ergoplatform/eips/blob/master/eip-0004.md) defines a pattern for uniform token minting across the ecosystem by settings values on additional registers.
 
 The `OutputBuilder`'s `mintToken()` method provides a seamless way to mint EIP-4 tokens.
 
@@ -188,7 +192,7 @@ new TransactionBuilder(creationHeight)
   .payFee("1100000"); // [!code focus]
 ```
 
-Alternatively, you can use the `payMinFee()` method to add the min recommended miner fee amount, which is `1100000 nanoergs` or `0.0011 ERG`.
+Alternatively, you can use the `payMinFee()` method to add the min recommended miner fee amount, which currently is `1100000 nanoergs` or `0.0011 ERG`.
 
 <!-- prettier-ignore -->
 ```ts
@@ -217,4 +221,44 @@ By default, the `build()` method will return a default unsigned transaction obje
 new TransactionBuilder(creationHeight)
    // ...
   .build("EIP-12"); // [!code focus]
+```
+
+## Example
+
+Building and signing a transaction using the dApp Connector protocol as a source of blockchain data.
+
+The following example is live and ready to play with at [stackblitz.com](https://stackblitz.com/fork/typescript-q1t3hl?file=index.ts).
+
+```ts
+import { OutputBuilder, TransactionBuilder } from "@fleet-sdk/core";
+
+(async () => {
+  // requests wallet access
+  if (await ergoConnector.nautilus.connect()) {
+    // get the current height from the the dApp Connector
+    const height = await ergo.get_current_height();
+
+    const unsignedTx = new TransactionBuilder(height)
+      .from(await ergo.get_utxos()) // add inputs from dApp Connector
+      .to(
+        // Add output
+        new OutputBuilder(
+          "2000000000",
+          "9gn5Jo6T7m4pAzCdD9JFdRMPxnfKLPgcX68rD8RQvPLyJsTpKcq"
+        )
+      )
+      .sendChangeTo(await ergo.get_change_address()) // Set the change address to the user's default change address
+      .payMinFee() // set minimal transaction fee
+      .build("EIP-12"); // build the transaction as an dApp Connector compatible object
+
+    // requests the signature
+    const signedTx = await ergo.sign_tx(unsignedTx);
+
+    // send the signed transaction to the mempool
+    const txId = await ergo.submit_tx(signedTx);
+
+    // displays the Transaction ID of the submitted transaction
+    console.log(txId);
+  }
+})();
 ```
