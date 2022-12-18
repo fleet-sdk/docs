@@ -7,7 +7,7 @@ titleTemplate: Fluent Ergo Toolset
 hero:
   name: Fleet SDK
   text: Fluent Ergo Toolset
-  tagline: Simple, powerful, and extensible. Meet the next generation of Ergo Platform's off-chain code SDKs.
+  tagline: Simple, powerful, and extensible. Meet the next generation of Ergo Platform's off-chain SDKs.
   actions:
     - theme: brand
       text: Get Started

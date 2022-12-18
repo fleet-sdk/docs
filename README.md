@@ -1,10 +1,10 @@
 # 📄 Documentation for Fleet SDK
 
-[Fleet SDK](https://github.com/fleet-sdk/fleet) is an easy-to-use, modular, and extensible off-chain code SDK (Software Development Kit)for the [Ergo Platform](https://ergoplatform.org/en/), written entirely in TypeScript.
+[Fleet SDK](https://github.com/fleet-sdk/fleet) is an easy-to-use, modular, and extensible off-chain SDK (Software Development Kit)for the [Ergo Platform](https://ergoplatform.org/en/), written entirely in TypeScript.
 
 **Fleet SDK** is currently in alpha status. It is already suitable for out-of-the-box use, but the API may still change between minor releases.
 
-This repository is for the [Fleet SDK Documentation](https://fleet-sdk.github.io/docs/) website. 
+This repository is for the [Fleet SDK Documentation](https://fleet-sdk.github.io/docs/) website.
 
 ## Contributing
 
@@ -13,4 +13,3 @@ This site is built with [VitePress](https://github.com/vuejs/vitepress). Site co
 ## Working on the content
 
 - See VitePress docs on supported [Markdown Extensions](https://vitepress.vuejs.org/guide/markdown.html) and the ability to [use Vue syntax inside markdown](https://vitepress.vuejs.org/guide/using-vue.html).
-
