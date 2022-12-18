@@ -12,9 +12,9 @@ An Ergo transaction is a way to interact with the blockchain. A transaction take
 
 ## What is a box?
 
-Shortly a box is an **Extended Unspent Transaction Output (eUTxO)**, which extends the Bitcoin's **Unspent Transaction Output (UTxO)** data structure with tokens, registers, data, and smart contracts.
+Briefly stated, a box is an **Extended Unspent Transaction Output (eUTxO)** data structure that extends Bitcoin's **Unspent Transaction Output (UTxO)** beyond coins to include tokens, registers, data, and smart contracts.
 
-An Ergo Transaction is nothing more than a set of boxes.
+An Ergo Transaction is nothing more than changing boxes, inputs into outputs.
 
 :::info Note
 We will shorten "smart contract" to simply contract in the rest of this document.
@@ -73,7 +73,7 @@ The Data-Inputs are boxes whose data can be referenced and used by contracts, if
 
 - Any **unspent** box can be used as Data-Input.
 - Data-Inputs are **optional** and must be only included in the transaction if required by a contract.
-- Boxes will not be spent by the transaction if used as Data-Input.
+- Boxes will not be spent by the transaction if used as Data-Input in a transaction.
 
 If required by a contract, use the `withDataFrom()` method to add Data-Inputs. Similar to the `from()` method, `withDataFrom()` can accept a single input box object or an array of input boxes.
 
@@ -88,7 +88,7 @@ new TransactionBuilder(creationHeight)
 
 Outputs boxes are the destination of funds held by the input boxes. When confirmed by the blockchain, output boxes are ready to be used as input boxes in further transactions.
 
-In the following example, we are using the `OutputBuilder` and the ` TransactionBuilder`'s `to()` method to construct and include outputs in the transaction body.
+In the following example, the `OutputBuilder` and the ` TransactionBuilder`'s `to()` methods are used to construct and include outputs in the transaction body.
 
 The `to()` method requires one or more `OutputBuilder` objects to be included in the transaction body.
 
@@ -126,7 +126,7 @@ new TransactionBuilder(creationHeight)
 :::tip
 If you are trying to add a token that may already be present in the output's token list, the default behavior of the `addTokens()` method is to sum the amount of duplicated tokens and keep a single record per token.
 
-If you want it to be added at the end of the list, you can pass `{ sum: false }` as a second parameter of `addTokens()` method.
+If you want it to be added at the end of the list, you can pass `{ sum: false }` as a second parameter of the `addTokens()` method.
 
 <!-- prettier-ignore -->
 ```ts
@@ -145,7 +145,7 @@ Tokens on Ergo can be minted, that is, created, by a transaction. To create a ne
 
 The `OutputBuilder`'s `mintToken()` method provides a seamless way to mint EIP-4 tokens.
 
-In the following example, we are minting a token named `TestToken` and sending it to `9gNvAv97W71Wm33GoXgSQBFJxinFubKvE6wh2dEhFTSgYEe783j` address.
+In the following example, a token named `TestToken` will be minted and and sent to the `9gNvAv97W71Wm33GoXgSQBFJxinFubKvE6wh2dEhFTSgYEe783j` address.
 
 <!-- prettier-ignore -->
 ```ts
@@ -172,7 +172,7 @@ Often, all the funds included in the input boxes are not used by the transaction
 
 To do so, you must call the `sendChangeTo()` method and pass an address as the only parameter.
 
-In the following example, we are sending the change to the `9gNvAv97W71Wm33GoXgSQBFJxinFubKvE6wh2dEhFTSgYEe783j` address.
+In the following example, the change will be sent to the `9gNvAv97W71Wm33GoXgSQBFJxinFubKvE6wh2dEhFTSgYEe783j` address.
 
 <!-- prettier-ignore -->
 ```ts
@@ -205,7 +205,7 @@ new TransactionBuilder(creationHeight)
 
 Now that all pieces are put together, it's time to build the transaction and obtain the **Unsigned Transaction** object. For that you can use the `build()` method.
 
-The `build()` method must be the last called method on the `TransactionBuilder` as it will do all necessary validations, input selection, change calculations and return an unsigned transaction object which can be signed by any Ergo signing tool.
+The `build()` method must be the last called method on the `TransactionBuilder` as it will do all necessary validations, input selection, change calculations and return an unsigned transaction object which can be signed by any Ergo signing tool, such as a wallet.
 
 <!-- prettier-ignore -->
 ```ts
