@@ -225,7 +225,7 @@ new TransactionBuilder(creationHeight)
 
 ## Example
 
-Build and sign a transaction using the dApp Connector protocol to access blockchain data.
+Build and sign a transaction using the [dApp Connector protocol](./wallet-interaction.md) to interact with the blockchain.
 
 The following example is live and ready to play with at [stackblitz.com](https://stackblitz.com/fork/typescript-q1t3hl?file=index.ts).
 
