@@ -2,10 +2,6 @@
 
 On the [Ergo Platform](https://ergoplatform.org/), one of the most common ways to interact with wallets and the Ergo blockchain is through the dApp Connector protocol, also known as [EIP-12](https://github.com/ergoplatform/eips/pull/23). It is the main wallet interaction protocol for browser extension wallets like [Nautilus](https://github.com/capt-nemo429/nautilus-wallet) or [SAFEW](https://github.com/ThierryM1212/SAFEW).
 
-:::warning
-**Work-in-Progress**: Non-reviewed text. You may find numerous writing errors throughout this guide.
-:::
-
 ## API overview
 
 The EIP-12 API is divided into two parts, the Connection and Context APIs. All methods defined in EIP-12 are promise-based asynchronous methods. This means that they return a `Promise`. As a result, calling any EIP-12 method requires either an `await` keyword or `Promise.then()` method to wait for them to finish.
@@ -181,9 +177,9 @@ await ergo.get_utxos({
   tokens: [
     {
       tokenId:
-        "03faf2cb329f2e90d6d23b58d91bbb6c046aa143261cc21f52fbe2824bfcbf04",
-    },
-  ],
+        "03faf2cb329f2e90d6d23b58d91bbb6c046aa143261cc21f52fbe2824bfcbf04"
+    }
+  ]
 });
 ```
 
@@ -195,9 +191,9 @@ await ergo.get_utxos({
     {
       tokenId:
         "03faf2cb329f2e90d6d23b58d91bbb6c046aa143261cc21f52fbe2824bfcbf04",
-      amount: "100", // [!code focus]
-    },
-  ],
+      amount: "100" // [!code focus]
+    }
+  ]
 });
 ```
 
