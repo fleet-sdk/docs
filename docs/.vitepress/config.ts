@@ -14,13 +14,10 @@ export default defineConfig({
   themeConfig: {
     outline: [2, 3],
     editLink: {
-      pattern:
-        "https://github.com/fleet-sdk/docs/edit/master/docs/:path",
+      pattern: "https://github.com/fleet-sdk/docs/edit/master/docs/:path",
       text: "Edit this page on GitHub"
     },
-    socialLinks: [
-      { icon: "github", link: "https://github.com/fleet-sdk" }
-    ],
+    socialLinks: [{ icon: "github", link: "https://github.com/fleet-sdk" }],
     nav: nav(),
     sidebar: {
       "/": sidebarGuide()
@@ -60,26 +57,26 @@ function sidebarGuide(): DefaultTheme.SidebarGroup[] {
         {
           text: "Transaction building",
           link: "/transaction-building"
-        },
-        { text: "Token burning", link: "" }
-      ]
-    },
-    {
-      text: "Built-in Plugins",
-      collapsible: true,
-      items: [
-        { text: "Babel Fees", link: "" },
-        { text: "Sigma USD", link: "" }
-      ]
-    },
-    {
-      text: "Plugin Authoring",
-      collapsible: true,
-      items: [
-        { text: "Getting Started", link: "" },
-        { text: "API specifications", link: "" },
-        { text: "Examples", link: "" }
+        }
+        // { text: "Token burning", link: "" }
       ]
     }
+    // {
+    //   text: "Built-in Plugins",
+    //   collapsible: false,
+    //   items: [
+    //     { text: "Babel Fees", link: "" },
+    //     { text: "Sigma USD", link: "" }
+    //   ]
+    // },
+    // {
+    //   text: "Plugin Authoring",
+    //   collapsible: false,
+    //   items: [
+    //     { text: "Getting Started", link: "" },
+    //     { text: "API specifications", link: "" },
+    //     { text: "Examples", link: "" }
+    //   ]
+    // }
   ];
 }

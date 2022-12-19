@@ -2,15 +2,7 @@
 
 An Ergo transaction is a way to interact with the blockchain. A transaction takes Input boxes from the blockchain, describes how each must be spent, and generates new Output boxes. These Output boxes then serve as Input boxes for a later transaction.
 
-- Each and every Ergo transaction is an **atomic operation**, which means it can not be partially executed.
-
-- Each transaction must contain **one or more** Input boxes, **one or more** Output boxes and **zero or more** Data-Input boxes.
-
-:::warning
-**Work-in-Progress**: Non-reviewed text. You may find numerous writing errors throughout this guide.
-:::
-
-## What is a box?
+### What is a box?
 
 Briefly stated, a box is an **Extended Unspent Transaction Output (eUTxO)** data structure that extends Bitcoin's **Unspent Transaction Output (UTxO)** beyond coins to include tokens, registers, data, and smart contracts.
 
@@ -23,6 +15,10 @@ We will shorten "smart contract" to simply contract in the rest of this document
 ## Building a transaction
 
 For transaction building, Fleet provides the `TransactionBuilder` and the `OutputBuilder` classes. Both deliver a seamless way to construct transactions with built-in validations, selection strategies, automatic change calculation, _et cetera_.
+
+- Each and every Ergo transaction is an **atomic operation**, which means it can not be partially executed.
+
+- Each transaction must contain **one or more** Input boxes, **one or more** Output boxes and **zero or more** Data-Input boxes.
 
 ```ts
 import { TransactionBuilder, OutputBuilder } from "@fleet-sdk/core";
