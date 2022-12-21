@@ -36,7 +36,7 @@ import { TransactionBuilder, OutputBuilder } from "@fleet-sdk/core";
 
 ## Step. 3: Use it!
 
-Now, you are ready to write awesome off-chain code!
+You are ready to write awesome off-chain code!
 
 ```ts
 const unsignedTransaction = new TransactionBuilder(creationHeight)
@@ -54,11 +54,11 @@ const unsignedTransaction = new TransactionBuilder(creationHeight)
 ```
 
 ::: tip
-No idea about where `inputs` and `creationHeight` variables come from? Please, take a look at the [Wallet Interaction](/wallet-interaction.md) page.
+If you do not know where `inputs` and `creationHeight` variables come from, please take a look at the [Wallet Interaction](/wallet-interaction.md) page.
 :::
 
-## What's next?
+## Next steps
 
-Next, you can continue on this guide for an in-depth exploration of all Fleet packages or pick the topic of your preference on the side panel.
+Follow along with the rest of this guide for an in-depth exploration of all Fleet packages. Or, if you prefer to get just what you need to start coding, pick the topic of your preference on the side panel.
 
 If you are not yet familiar with Ergo transactions, you may want to look at the excellent "[Anatomy of Ergo](https://docs.ergoplatform.com/dev/data-model/box/)" section on Ergo Docs.

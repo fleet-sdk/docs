@@ -48,7 +48,7 @@ await ergo.get_balance();
 
 ### Step. 1: Check for a wallet
 
-To check if the user has an EIP-12 wallet installed and running you need to check for the presence of `ergoConnector` object and then for the desired wallet.
+To check if the user has an EIP-12 wallet installed and running, check for the presence of the `ergoConnector` object and then for the desired wallet.
 
 <!-- prettier-ignore-start -->
 ```ts
@@ -67,7 +67,7 @@ if (ergoConnector) { // check if Connection API is injected // [!code focus]
 <!-- prettier-ignore-end -->
 
 :::info
-For the sake of simplicity, Nautilus Wallet will be used for all examples. But this guide is suitable for any other EIP-12 compatible wallet. Please, refer to the [Connection API topic](#connection-api) for more information.
+For the sake of simplicity, the Nautilus Wallet will be used for all examples. But this guide is suitable for any other EIP-12 compatible wallet. Please, refer to the [Connection API topic](#connection-api) for more information.
 :::
 
 ### Step. 2: Request access
@@ -90,7 +90,7 @@ When you call `ergoConnector.nautilus.connect()` for the first time a wallet win
 
 Now that you have access to the [Context API](#context-api) you can interact with the connected wallet.
 
-Let's start by getting the wallet's balance. For that, you can use the `ergo.get_balance()` method.
+Let's start by getting the wallet's balance. For that, use the `ergo.get_balance()` method.
 
 #### Get ERG balance
 
@@ -146,7 +146,7 @@ await ergo.get_unused_addresses();
 
 #### Get used addresses
 
-The following code will return an `array` of strings containing all wallet's used addresses.
+The following code will return an `array` of strings containing all the wallet's used addresses.
 
 ```ts
 await ergo.get_used_addresses();

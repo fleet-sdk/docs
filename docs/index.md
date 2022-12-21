@@ -18,7 +18,7 @@ hero:
 
 features:
   - title: Fluent & powerful
-    details: Fleet abstracts all complex tasks and makes heavy use of fluent APIs to deliver a great developer experience. Enjoy the experience of writing frictionless off-chain code with a pure TypeScript library.
+    details: Fleet abstracts all complex tasks and makes heavy use of fluent APIs to deliver a great developer experience. Enjoy writing frictionless off-chain code with a pure TypeScript library.
   - title: Make truly decentralized dApps
     details: Being a TypeScript package, Fleet makes it possible to run off-chain code directly in the user's browser. Eliminating the need for backends and can simplify the creation of truly decentralized applications.
   - title: "Write once, run anywhere"
