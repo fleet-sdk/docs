@@ -1,8 +1,8 @@
 # Burning Tokens
 
-Burning tokens on Ergo is done similarly to [minting](./transaction-building.md#step-4-2-mint-a-token). As to mint, you need to add an inexistent token to outputs; to burn, you must add tokens as inputs and omit the number of tokens you want to burn from outputs.
+Burning tokens on Ergo is similar to [minting](./transaction-building.md#step-4-2-mint-a-token). Minting occurs whenever a new token is added to a transaction's output. Burning occurs when a transaction has fewer outputs than inputs. Most transactions have outputs and inputs that are equal. 
 
-Having such an implicit burning mechanism makes it easy to accidentally burn tokens. So that Fleet only allows burning through the `TransactionBuilder.BurnTokens()` method or by explicitly allowing it through `TransactionBuilder.configure(x => x.allowTokenBurning(true))` if a manual approach is needed.
+To protect against accidently burning tokens, Fleet checks to make sure inputs and outputs are equal. To burn tokens, the `TransactionBuilder.BurnTokens()` method is used to declare the tokenId and amount to burn. 
 
 The `BurnTokens` method accepts a single object or an array of objects describing which and how many tokens to burn.
 
@@ -16,4 +16,4 @@ new TransactionBuilder(creationHeight)
   }) // [!code focus]
   .sendChangeTo(changeAddress)
   .build();
-```
+If a manual approach is needed, burning can be explicitly allowed through a configuration option: `TransactionBuilder.configure(x => x.allowTokenBurning(true))`
