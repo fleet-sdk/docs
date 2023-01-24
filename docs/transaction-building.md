@@ -137,7 +137,7 @@ addTokens(
 
 ### Step. 4.2: Mint a token
 
-Tokens on Ergo can be minted, that is, created, by a transaction. To create a new token, set the `Token ID` equal to the first input's `Box ID` and add it to the outputs. Additionally, [EIP-4](https://github.com/ergoplatform/eips/blob/master/eip-0004.md) defines a pattern for uniform token minting across the ecosystem by settings values on additional registers.
+Tokens on Ergo can be minted, that is, created, by a transaction. To create a new token, set the `Token ID` equal to the first input's `Box ID` and add it to the outputs. Additionally, [EIP-4](https://github.com/ergoplatform/eips/blob/master/eip-0004.md) defines a pattern for uniform token minting across the ecosystem by setting values on additional registers.
 
 The `OutputBuilder`'s `mintToken()` method provides a seamless way to mint EIP-4 tokens.
 
@@ -166,7 +166,7 @@ Only one token can be minted per transaction.
 
 Often, all the funds included in the input boxes are not used by the transaction. An address needs to be set to receive these funds. This is referred to as the change from the eUTxO transaction.
 
-To do so, you must call the `sendChangeTo()` method and pass an address as the only parameter.
+To do so, call the `sendChangeTo()` method and pass an address as the only parameter.
 
 In the following example, the change will be sent to the `9gNvAv97W71Wm33GoXgSQBFJxinFubKvE6wh2dEhFTSgYEe783j` address.
 
@@ -179,7 +179,7 @@ new TransactionBuilder(creationHeight)
 
 ## Step. 6: Set the fee amount
 
-Each transaction on Ergo needs to have a mining fee box, you can use the `payFee()` method to specify the fee amount in `nanoergs`.
+Each transaction on Ergo needs to have a mining fee box, use the `payFee()` method to specify the fee amount in `nanoergs`.
 
 <!-- prettier-ignore -->
 ```ts
@@ -199,9 +199,9 @@ new TransactionBuilder(creationHeight)
 
 ## Step. 7: Build
 
-Now that all pieces are put together, it's time to build the transaction and obtain the **Unsigned Transaction** object. For that you can use the `build()` method.
+Now that all pieces are put together, build the transaction and obtain the **Unsigned Transaction** object. For that use the `build()` method.
 
-The `build()` method must be the last called method on the `TransactionBuilder` as it will do all necessary validations, input selection, change calculations and return an unsigned transaction object which can be signed by any Ergo signing tool, such as a wallet.
+The `build()` method must be the last called method when building a transaction with `TransactionBuilder` as it will do all necessary validations, input selection, change calculations and return an unsigned transaction object. This object can then be signed by any Ergo signing tool, such as a wallet.
 
 <!-- prettier-ignore -->
 ```ts
