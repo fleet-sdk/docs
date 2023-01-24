@@ -9,11 +9,11 @@ The `BurnTokens` method accepts a single object or an array of objects describin
 <!-- prettier-ignore -->
 ```ts
 new TransactionBuilder(creationHeight)
-  .from(inputs)
   .burnTokens({ // [!code focus]
     tokenId: sigUSDTokenId, // [!code focus]
     amount: "10" // the amount of tokens you want to burn // [!code focus]
   }) // [!code focus]
+  .from(inputs)
   .sendChangeTo(changeAddress)
   .build();
 ```
