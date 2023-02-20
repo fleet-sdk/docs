@@ -221,7 +221,8 @@ const unsignedTransaction = new TransactionBuilder(creationHeight)
   .to(new OutputBuilder(1000000n, recipientAddress))
   .sendChangeTo(changeAddress)
   .payMinFee()
-  .build();
+  .build()
+  .toPlainObject();
 
 const signedTransaction = await ergo.sign_tx(unsignedTransaction); // [!code focus]
 ```

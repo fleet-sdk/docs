@@ -54,22 +54,25 @@ function sidebarGuide(): DefaultTheme.SidebarGroup[] {
       collapsible: false,
       items: [
         { text: "Wallet interaction", link: "/wallet-interaction" },
-        {
-          text: "Transaction building",
-          link: "/transaction-building"
-        },
-        {
-          text: "Token burning",
-          link: "/token-burning"
-        }
+        { text: "Transaction building", link: "/transaction-building" },
+        { text: "Token burning", link: "/token-burning" }
       ]
     }
+    // {
+    //   text: "Advanced Usage",
+    //   collapsible: false,
+    //   items: [
+    //     { text: "Tweaking the Input Selector", link: "" },
+    //     { text: "Working with Constants", link: "" }
+    //   ]
+    // },
     // {
     //   text: "Built-in Plugins",
     //   collapsible: false,
     //   items: [
     //     { text: "Babel Fees", link: "" },
-    //     { text: "Sigma USD", link: "" }
+    //     { text: "Sigma USD", link: "" },
+    //     { text: "SigmaFi", link: "" }
     //   ]
     // },
     // {

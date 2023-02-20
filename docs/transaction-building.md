@@ -208,15 +208,17 @@ The `build()` method must be the last called method when building a transaction 
 new TransactionBuilder(creationHeight)
    // ...
   .build(); // [!code focus]
+  .toPlainObject() // [!code focus]
 ```
 
-By default, the `build()` method will return a default unsigned transaction object, if you want to send it to be signed by the user's wallet through [dApp Connector protocol](./wallet-interaction.md), you should include "EIP-12" as a parameter in the `build()` method so it will include additional information required by the protocol.
+The `build()` method will return an instance of `ErgoUnsignedTransaction`, if you want to send it to be signed by the user's wallet through [dApp Connector protocol](./wallet-interaction.md), you should call `toEIP12Object()` after `build()` method so it will include additional information required by the protocol. Otherwise, you must call `toPlainObject()`.
 
 <!-- prettier-ignore -->
 ```ts
 new TransactionBuilder(creationHeight)
    // ...
-  .build("EIP-12"); // [!code focus]
+  .build(); // [!code focus]
+  .toEIP12Object() // [!code focus]
 ```
 
 ## Example
@@ -245,7 +247,8 @@ import { OutputBuilder, TransactionBuilder } from "@fleet-sdk/core";
       )
       .sendChangeTo(await ergo.get_change_address()) // Set the change address to the user's default change address
       .payMinFee() // set minimal transaction fee
-      .build("EIP-12"); // build the transaction as an dApp Connector compatible object
+      .build() // build the transaction
+      .toEIP12Object(); // converts the ErgoUnsignedTransaction instance to an dApp Connector compatible plain object
 
     // requests the signature
     const signedTx = await ergo.sign_tx(unsignedTx);
