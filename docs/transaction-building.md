@@ -207,8 +207,8 @@ The `build()` method must be the last called method when building a transaction 
 ```ts
 new TransactionBuilder(creationHeight)
    // ...
-  .build(); // [!code focus]
-  .toPlainObject() // [!code focus]
+  .build() // [!code focus]
+  .toPlainObject(); // [!code focus]
 ```
 
 The `build()` method will return an instance of `ErgoUnsignedTransaction`, if you want to send it to be signed by the user's wallet through [dApp Connector protocol](./wallet-interaction.md), you should call `toEIP12Object()` after `build()` method so it will include additional information required by the protocol. Otherwise, you must call `toPlainObject()`.
@@ -217,8 +217,8 @@ The `build()` method will return an instance of `ErgoUnsignedTransaction`, if yo
 ```ts
 new TransactionBuilder(creationHeight)
    // ...
-  .build(); // [!code focus]
-  .toEIP12Object() // [!code focus]
+  .build() // [!code focus]
+  .toEIP12Object(); // [!code focus]
 ```
 
 ## Example
