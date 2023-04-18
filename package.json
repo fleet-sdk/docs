@@ -2,7 +2,7 @@
   "name": "docs",
   "version": "1.0.0",
   "description": "",
-  "packageManager": "pnpm@7.18.0",
+  "packageManager": "pnpm@8.0.0",
   "scripts": {
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
@@ -15,7 +15,7 @@
     "vue": "^3.2.45"
   },
   "devDependencies": {
-    "vitepress": "1.0.0-alpha.32"
+    "vitepress": "1.0.0-alpha.72"
   },
   "pnpm": {
     "peerDependencyRules": {
@@ -26,6 +26,6 @@
   },
   "engines": {
     "node": ">=16",
-    "pnpm": ">=7.3.0 <8"
+    "pnpm": ">=8 <9"
   }
 }

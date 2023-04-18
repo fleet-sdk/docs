@@ -7,11 +7,14 @@ export default defineConfig({
   base: "/docs/",
 
   lastUpdated: true,
-  cleanUrls: "without-subfolders",
+  cleanUrls: true,
 
   head: [["meta", { name: "theme-color", content: "#3c8772" }]],
 
   themeConfig: {
+    search: {
+      provider: "local"
+    },
     outline: [2, 3],
     editLink: {
       pattern: "https://github.com/fleet-sdk/docs/edit/master/docs/:path",
@@ -42,7 +45,7 @@ function nav(): DefaultTheme.NavItem[] {
   ];
 }
 
-function sidebarGuide(): DefaultTheme.SidebarGroup[] {
+function sidebarGuide() {
   return [
     {
       text: "Introduction",
