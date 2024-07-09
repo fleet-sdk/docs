@@ -9,8 +9,6 @@ export default defineConfig({
   lastUpdated: true,
   cleanUrls: true,
 
-  head: [["meta", { name: "theme-color", content: "#3c8772" }]],
-
   themeConfig: {
     search: {
       provider: "local"
@@ -21,7 +19,6 @@ export default defineConfig({
       text: "Edit this page on GitHub"
     },
     socialLinks: [{ icon: "github", link: "https://github.com/fleet-sdk" }],
-    nav: nav(),
     sidebar: {
       "/": sidebarGuide()
     },
