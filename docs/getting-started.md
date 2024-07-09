@@ -2,10 +2,6 @@
 
 Fleet SDK is an easy-to-use, modular, and extensible off-chain SDK (Software Development Kit) for the [Ergo Platform](https://ergoplatform.org/en/), written entirely in TypeScript.
 
-::: warning
-**Fleet SDK** is currently in alpha status. It is already suitable for out-of-the-box use, but the API may still change between minor releases.
-:::
-
 ## Step. 1: Install
 
 Add Fleet SDK as a dependency for the project.

@@ -58,31 +58,5 @@ function sidebarGuide() {
         { text: "Token burning", link: "/token-burning" }
       ]
     }
-    // {
-    //   text: "Advanced Usage",
-    //   collapsible: false,
-    //   items: [
-    //     { text: "Tweaking the Input Selector", link: "" },
-    //     { text: "Working with Constants", link: "" }
-    //   ]
-    // },
-    // {
-    //   text: "Built-in Plugins",
-    //   collapsible: false,
-    //   items: [
-    //     { text: "Babel Fees", link: "" },
-    //     { text: "Sigma USD", link: "" },
-    //     { text: "SigmaFi", link: "" }
-    //   ]
-    // },
-    // {
-    //   text: "Plugin Authoring",
-    //   collapsible: false,
-    //   items: [
-    //     { text: "Getting Started", link: "" },
-    //     { text: "API specifications", link: "" },
-    //     { text: "Examples", link: "" }
-    //   ]
-    // }
   ];
 }
