@@ -18,6 +18,7 @@ export default defineConfig({
       pattern: "https://github.com/fleet-sdk/docs/edit/master/docs/:path",
       text: "Edit this page on GitHub"
     },
+    nav: nav(),
     socialLinks: [{ icon: "github", link: "https://github.com/fleet-sdk" }],
     sidebar: {
       "/": sidebarGuide()
@@ -31,11 +32,15 @@ export default defineConfig({
 function nav(): DefaultTheme.NavItem[] {
   return [
     {
-      text: "v0.1.0-alpha",
+      text: "Contributing",
       items: [
         {
-          text: "Changelog",
-          link: "https://github.com/fleet-sdk/fleet/blob/master/CHANGELOG.md"
+          text: "Fleet SDK",
+          link: "https://github.com/fleet-sdk/fleet/blob/master/CONTRIBUTING.md",
+        },
+        {
+          text: "Documentation",
+          link: "https://github.com/fleet-sdk/docs/blob/master/.github/contributing.md"
         }
       ]
     }
