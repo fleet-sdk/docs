@@ -40,18 +40,39 @@ Ergo provides an [API](https://api.ergoplatform.com/api/v1/docs/#operation/getAp
 
 Full documentation for the API can be found [here](https://api.ergoplatform.com/api/v1/docs/).
 
-Listing Boxes by Address from the Explorer
+#### Listing Boxes by Address from the Explorer [API](https://api.ergoplatform.com/api/v1/docs/#operation/getApiV1BoxesUnspentByaddressP1)
 
 ```ts
-function fetchUnspentBoxes(address) {
+async function fetchUnspentBoxesByAddress(address): Promise<Box[]> {
   const url = `https://api.ergoplatform.com/api/v1/boxes/unspent/byAddress/${address}`;
 
   const headers = {
     accept: "application/json"
   };
-  return fetch(url, { headers: headers })
-    .then((response) => response.json())
-    .catch((err) => console.error(err));
+  let rawBoxes = (await (
+    await fetch(url, { headers: headers })
+  ).json()) as unknown as {
+    items: Box[];
+  };
+  return rawBoxes.items;
+}
+```
+
+#### Listing Boxes by Token from the Explorer [API](https://api.ergoplatform.com/api/v1/docs/#operation/getApiV1BoxesUnspentBytokenidP1)
+
+```ts
+async function fetchUnspentBoxesByTokenId(tokenId): Promise<Box[]> {
+  const url = `https://api.ergoplatform.com/api/v1/boxes/unspent/byTokenId/${tokenId}`;
+
+  const headers = {
+    accept: "application/json"
+  };
+  let rawBoxes = (await (
+    await fetch(url, { headers: headers })
+  ).json()) as unknown as {
+    items: Box[];
+  };
+  return rawBoxes.items;
 }
 ```
 
@@ -64,10 +85,13 @@ The Box Data gotten from this API has some extra fields that we need to take out
   if (await ergoConnector.nautilus.connect()) {
     const height = await ergo.get_current_height();
 
-    const boxFromExplorer = await fetchUnspentBoxes(
+    const _boxes = await fetchUnspentBoxesByAddress(
       await ergo.get_change_address()
     );
-    const boxes = boxFromExplorer.map((box) => {
+    // const _boxes = await fetchUnspentBoxesByAddress(
+    // "f60bff91f7ae3f3a5f0c2d35b46ef8991f213a61d7f7e453d344fa52a42d9f9a" // SigUSD Token ID
+    // );
+    const boxes = _boxes.map((box) => {
       return {
         boxId: box.boxId,
         value: box.value,
@@ -76,7 +100,7 @@ The Box Data gotten from this API has some extra fields that we need to take out
         ergoTree: box.ergoTree,
         additionalRegisters: box.additionalRegisters,
         transactionId: box.transactionId,
-        index: box.index,
+        index: box.index
       };
     });
 
@@ -84,8 +108,8 @@ The Box Data gotten from this API has some extra fields that we need to take out
       .from(boxes)
       .to(
         new OutputBuilder(
-          '100000000',
-          '9efPWBBjL1pddkH9pxnEjjGZxABseEjeXAAMxMUSV7Ug6nN44Wr'
+          "100000000",
+          "9efPWBBjL1pddkH9pxnEjjGZxABseEjeXAAMxMUSV7Ug6nN44Wr"
         )
       )
       .sendChangeTo(await ergo.get_change_address())

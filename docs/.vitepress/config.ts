@@ -61,7 +61,13 @@ function sidebarGuide() {
         { text: "Wallet interaction", link: "/wallet-interaction" },
         { text: "Transaction building", link: "/transaction-building" },
         { text: "Token burning", link: "/token-burning" },
-        { text: "Retrieve and Use Boxes", link: "/use-of-boxes" }
+      ]
+    },
+    {
+      text: "Box Retrieval from Blockchain",
+      collapsible: false,
+      items: [
+        { text: "Retrieving boxes from blockchain", link: "/retrieving-boxes" }
       ]
     }
   ];
