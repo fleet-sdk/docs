@@ -36,7 +36,7 @@ function nav(): DefaultTheme.NavItem[] {
       items: [
         {
           text: "Fleet SDK",
-          link: "https://github.com/fleet-sdk/fleet/blob/master/CONTRIBUTING.md",
+          link: "https://github.com/fleet-sdk/fleet/blob/master/CONTRIBUTING.md"
         },
         {
           text: "Documentation",
@@ -60,7 +60,8 @@ function sidebarGuide() {
       items: [
         { text: "Wallet interaction", link: "/wallet-interaction" },
         { text: "Transaction building", link: "/transaction-building" },
-        { text: "Token burning", link: "/token-burning" }
+        { text: "Token burning", link: "/token-burning" },
+        { text: "Retrieve and Use Boxes", link: "/use-of-boxes" }
       ]
     }
   ];
