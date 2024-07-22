@@ -1,4 +1,4 @@
-# Retrieve and Use Boxes
+# Retrieve and Utilize Boxes from Blockchain.
 
 When using the `TransactionBuilder` class, you will need to work with boxes, which are the fundamental building blocks of Ergo transactions. Boxes represent unspent transaction outputs (UTXOs) on the Ergo blockchain. Each box contains assets (such as ERG or tokens) and potentially additional data.
 
@@ -88,7 +88,7 @@ The Box Data gotten from this API has some extra fields that we need to take out
     const _boxes = await fetchUnspentBoxesByAddress(
       await ergo.get_change_address()
     );
-    // const _boxes = await fetchUnspentBoxesByAddress(
+    // const _boxes = await fetchUnspentBoxesByTokenId(
     // "f60bff91f7ae3f3a5f0c2d35b46ef8991f213a61d7f7e453d344fa52a42d9f9a" // SigUSD Token ID
     // );
     const boxes = _boxes.map((box) => {
