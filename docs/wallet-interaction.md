@@ -222,7 +222,7 @@ const unsignedTransaction = new TransactionBuilder(creationHeight)
   .sendChangeTo(changeAddress)
   .payMinFee()
   .build()
-  .toPlainObject();
+  .toEIP12Object();
 
 const signedTransaction = await ergo.sign_tx(unsignedTransaction); // [!code focus]
 ```

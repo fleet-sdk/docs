@@ -36,7 +36,7 @@ function nav(): DefaultTheme.NavItem[] {
       items: [
         {
           text: "Fleet SDK",
-          link: "https://github.com/fleet-sdk/fleet/blob/master/CONTRIBUTING.md",
+          link: "https://github.com/fleet-sdk/fleet/blob/master/CONTRIBUTING.md"
         },
         {
           text: "Documentation",
