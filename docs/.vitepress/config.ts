@@ -52,15 +52,33 @@ function sidebarGuide() {
     {
       text: "Introduction",
       collapsible: false,
-      items: [{ text: "Getting Started", link: "/getting-started" }]
+      items: [
+        { text: "Getting Started", link: "/getting-started" },
+        { text: "Installation", link: "/installation" },
+        { text: "Core Concepts", link: "/core-concepts" }
+      ]
+    },
+    {
+      text: "Tutorial",
+      collapsible: false,
+      items: [
+        { text: "Build Your First dApp", link: "/tutorial" }
+      ]
     },
     {
       text: "Basic Usage",
       collapsible: false,
       items: [
-        { text: "Wallet interaction", link: "/wallet-interaction" },
-        { text: "Transaction building", link: "/transaction-building" },
-        { text: "Token burning", link: "/token-burning" }
+        { text: "Wallet Interaction", link: "/wallet-interaction" },
+        { text: "Transaction Building", link: "/transaction-building" },
+        { text: "Token Burning", link: "/token-burning" }
+      ]
+    },
+    {
+      text: "Advanced",
+      collapsible: false,
+      items: [
+        { text: "Contract Signing", link: "/contract-signing" }
       ]
     }
   ];
