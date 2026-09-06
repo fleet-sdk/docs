@@ -1,0 +1,14 @@
+{
+  "name": "fleet-compile-time-constants-example",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node index.mjs",
+    "test": "node --test test.mjs"
+  },
+  "dependencies": {
+    "@fleet-sdk/compiler": "0.12.0",
+    "@fleet-sdk/core": "0.12.0",
+    "@fleet-sdk/serializer": "0.11.0"
+  }
+}
