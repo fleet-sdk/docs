@@ -1,0 +1,12 @@
+{
+  "name": "fleet-box-retrieval-example",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  },
+  "dependencies": {
+    "@fleet-sdk/core": "0.12.0",
+    "lossless-json": "4.3.1"
+  }
+}
