@@ -59,6 +59,7 @@ function sidebarGuide() {
       collapsible: false,
       items: [
         { text: "Wallet interaction", link: "/wallet-interaction" },
+        { text: "Retrieving boxes", link: "/retrieving-boxes" },
         { text: "Transaction building", link: "/transaction-building" },
         { text: "Token burning", link: "/token-burning" }
       ]
