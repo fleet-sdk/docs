@@ -62,6 +62,22 @@ function sidebarGuide() {
         { text: "Transaction building", link: "/transaction-building" },
         { text: "Token burning", link: "/token-burning" }
       ]
+    },
+    {
+      text: "Tutorial",
+      collapsible: false,
+      items: [
+        { text: "Overview", link: "/tutorial/" },
+        {
+          text: "Basics",
+          collapsed: false,
+          items: [
+            { text: "Send ERG to a wallet", link: "/tutorial/basics/send-transactions" },
+            { text: "Mint a token", link: "/tutorial/basics/mint-tokens" },
+            { text: "Burn a token", link: "/tutorial/basics/burn-tokens" }
+          ]
+        }
+      ]
     }
   ];
 }
