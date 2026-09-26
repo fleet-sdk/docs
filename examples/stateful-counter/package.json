@@ -1,0 +1,16 @@
+{
+  "name": "fleet-stateful-counter-example",
+  "private": true,
+  "type": "module",
+  "description": "Offline Fleet SDK example for a stateful box consumed by two successive transactions",
+  "scripts": {
+    "test": "node --test counter.test.mjs",
+    "demo": "node demo.mjs"
+  },
+  "dependencies": {
+    "@fleet-sdk/compiler": "0.12.0",
+    "@fleet-sdk/core": "0.12.0",
+    "@fleet-sdk/mock-chain": "0.12.0",
+    "@fleet-sdk/serializer": "0.11.0"
+  }
+}

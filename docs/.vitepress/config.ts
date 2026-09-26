@@ -62,6 +62,11 @@ function sidebarGuide() {
         { text: "Transaction building", link: "/transaction-building" },
         { text: "Token burning", link: "/token-burning" }
       ]
+    },
+    {
+      text: "Examples",
+      collapsible: false,
+      items: [{ text: "Stateful counter", link: "/stateful-counter" }]
     }
   ];
 }
