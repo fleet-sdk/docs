@@ -76,6 +76,12 @@ function sidebarGuide() {
             { text: "Mint a token", link: "/tutorial/basics/mint-tokens" },
             { text: "Burn a token", link: "/tutorial/basics/burn-tokens" }
           ]
+        },
+        {
+          text: "Examples",
+          items: [
+            { text: "Crowdfunding contract", link: "/tutorial/examples/crowdfunding" }
+          ]
         }
       ]
     }

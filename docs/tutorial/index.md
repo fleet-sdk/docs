@@ -29,3 +29,7 @@ The examples use [`@fleet-sdk/mock-chain`](https://www.npmjs.com/package/@fleet-
 1. [Send ERG to a wallet](./basics/send-transactions) - inputs, outputs, change, and miner fees
 2. [Mint a token](./basics/mint-tokens) - EIP-4 token standards
 3. [Burn a token](./basics/burn-tokens) - destroying token supply
+
+### Examples
+
+1. [Crowdfunding contract](./examples/crowdfunding) - a multi-transaction campaign box with collect and refund paths
