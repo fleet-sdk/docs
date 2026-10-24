@@ -62,6 +62,14 @@ function sidebarGuide() {
         { text: "Transaction building", link: "/transaction-building" },
         { text: "Token burning", link: "/token-burning" }
       ]
+    },
+    {
+      text: "Tutorial",
+      collapsible: false,
+      items: [
+        { text: "Overview", link: "/tutorial/" },
+        { text: "Send to wallets", link: "/tutorial/01-send-to-wallet" }
+      ]
     }
   ];
 }
