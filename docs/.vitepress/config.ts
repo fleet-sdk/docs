@@ -62,6 +62,11 @@ function sidebarGuide() {
         { text: "Transaction building", link: "/transaction-building" },
         { text: "Token burning", link: "/token-burning" }
       ]
+    },
+    {
+      text: "Reduced Transactions",
+      collapsible: false,
+      items: [{ text: "Reduced Txs and ErgoPay", link: "/reduced-transactions" }]
     }
   ];
 }
