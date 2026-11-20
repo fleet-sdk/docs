@@ -62,6 +62,11 @@ function sidebarGuide() {
         { text: "Transaction building", link: "/transaction-building" },
         { text: "Token burning", link: "/token-burning" }
       ]
+    },
+    {
+      text: "eUTxOs",
+      collapsible: false,
+      items: [{ text: "Compile-time constants", link: "/compile-time-constants" }]
     }
   ];
 }
